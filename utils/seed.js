@@ -21,8 +21,6 @@ connection.once("open", async () => {
   await User.insertMany(seedUsers);
   await Thought.insertMany(seedThoughts);
 
-  // console.table(users);
-  // console.table(thoughts);
   console.info("Seeding complete! 🌱");
   process.exit(0);
 });
