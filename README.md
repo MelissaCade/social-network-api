@@ -8,6 +8,10 @@ This project explores backend development for a social media app in MongoDB usin
 
 ## Demonstrations
 
+This demonstration shows the server being started and all routes functioning.
+
+https://github.com/MelissaCade/social-network-api/assets/160056156/0d2dc731-d7ce-43ff-bb1e-7f44829a6477
+
 ## Screenshots
 
 ![Get all users](./assets/screenshots/user-get_all.png)
