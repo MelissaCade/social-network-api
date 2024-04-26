@@ -48,11 +48,67 @@ In the terminal, type "nodemon index.js" to start the server and connect to the 
 
 ## Usage
 
-NOTE: This project comes with a small amount of user seed data, which you can install using "npm run seed" in your terminal, but once your database is seeded it is better to create your own users, thoughts, friendships, and reactions using insomnia and the routes provided. 
+NOTE: This project comes with a small amount of user seed data, which you can install using "npm run seed" in your terminal, but once your database is seeded it is better to create your own users, thoughts, friendships, and reactions using insomnia and the routes provided.
 
-To create a user, 
+Follow these routes, and use the included JSON body objects when applicable, to interact with the database in Insomnia:
+
+(GET) Get all users: http://localhost:3001/api/users
+
+(GET) Get one user: http://localhost:3001/api/users/:userId (here, ":userId" represents the ID number of whichever user you wish to see.)
+
+(POST) Create a user: http://localhost:3001/api/users
+
+`{
+	"username": "anduin",
+	"email": "longriver@abc.com"
+}`
+
+(PUT) Update a user: http://localhost:3001/api/users/:userId (here, ":userId" represents the ID number of whichever user you wish to update.)
+
+`{
+	"email": "legolaswho@abc.com"
+}`
+
+(DEL) Delete a user: http://localhost:3001/api/users/:userId (here, ":userId" represents the ID number of whichever user you wish to delete.)
+NOTE: When a user is deleted, their associated thoughts are also deleted.
+
+(POST) Add a friend: http://localhost:3001/api/users/:userId/friends/:friendId (":userId" represents the ID of the first user in our friendship, and ":friendId" represents the second. Both users will be updated to show a mutual friendship.)
+
+(DEL) Remove a friend: http://localhost:3001/api/users/:userId/friends/:friendId (":userId" represents the ID of the first user in our friendship, and ":friendId" represents the second. Both users will be updated to remove the friendship.)
+
+(GET) Get all thoughts: http://localhost:3001/api/thoughts
+
+(GET) Get one thought: http://localhost:3001/api/thoughts/:thoughtId (":thoughtId" is the ID number of whichever thought you wish to see.)
+
+(POST) Create a thought: http://localhost:3001/api/thoughts
+
+`{
+	"thoughtText": "I am the penultimate villain! Wait, what does 'penultimate' mean again?",
+	"username": "saurumon"
+}`
+
+(PUT) Update a thought: http://localhost:3001/api/thoughts/:thoughtId (":thoughtId" is the ID number of whichever thought you wish to update.)
+
+`{
+	"thoughtText": "See? You guys totally had this."
+}`
+
+(DEL) Delete a thought: http://localhost:3001/api/thoughts/:thoughtId (":thoughtId" is the ID number of whichever thought you wish to delete.)
+
+(POST) Add a reaction: http://localhost:3001/api/thoughts/:thoughtId/reactions (":thoughtId" is the ID number of whichever thought you wish to react to.)
+
+`{
+	"reactionBody": "You can't sit with us anymore.",
+	"username": "gandalf"
+}`
+
+(DEL) Remove a reaction: http://localhost:3001/api/thoughts/:thoughtId/reactions/:reactionId (":thoughtId" is the ID number of whichever thought you wish to remove the reaction from. ":reactionId" is the ID number of the reaction you wish to remove.)
+
+The user can create as many users, friendships, thoughts, and associated reactions as they choose.
 
 ## Links
+
+GitHub Repository: https://github.com/MelissaCade/social-network-api
 
 ## Credits
 
