@@ -23,17 +23,11 @@ module.exports = {
         {
           _id: req.params.thoughtId,
         },
-        { $pull: { reactions: req.params.reactionId } },
+        { $pull: { reactions: { _id: req.params.reactionId } } },
         { new: true }
       );
       if (!thought) {
         res.status(404).json({ message: "No thought found with that ID." });
-      }
-      const reaction = await Reaction.findOneAndDelete({
-        _id: req.params.reactionId,
-      });
-      if (!reaction) {
-        res.status(404).json({ message: "No reaction found with that ID." });
       }
       res.status(200).json({
         message: "Reaction successfully deleted.",
