@@ -14,32 +14,46 @@ https://github.com/MelissaCade/social-network-api/assets/160056156/0d2dc731-d7ce
 
 ## Screenshots
 
+Get all users:
 ![Get all users](./assets/screenshots/user-get_all.png)
 
+Get one user:
 ![Get one user](./assets/screenshots/user-get_one.png)
 
+Create a user:
 ![Create a user](./assets/screenshots/user-create.png)
 
+Update a user:
 ![Update a user](./assets/screenshots/user-update.png)
 
+Delete a user:
 ![Delete a user](./assets/screenshots/user-delete.png)
 
+Add a friendship:
 ![Add a friend to a user](./assets/screenshots/friend-create.png)
 
+Remove a friendship:
 ![Delete a friend from a user](./assets/screenshots/friend-delete.png)
 
+Get all thoughts:
 ![Get all thoughts](./assets/screenshots/thought-get_all.png)
 
+Get one thought:
 ![Get one thought](./assets/screenshots/thought-get_one.png)
 
+Create a thought:
 ![Create a thought](./assets/screenshots/thought-create.png)
 
+Update a thought:
 ![Update a thought](./assets/screenshots/thought-update.png)
 
+Delete a thought:
 ![Delete a thought](./assets/screenshots/thought-delete.png)
 
+Add a reaction to a thought:
 ![Add a reaction to a thought](./assets/screenshots/reaction-create.png)
 
+Remove a reaction from a thought:
 ![Remove a reaction from a thought](./assets/screenshots/thought-delete.png)
 
 ## Installation
