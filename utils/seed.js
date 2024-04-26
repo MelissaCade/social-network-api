@@ -1,6 +1,6 @@
 const connection = require("../config/connection");
 const { User, Thought, Reaction } = require("../models");
-const { seedUsers, seedThoughts } = require("./data");
+const { seedUsers } = require("./data");
 
 connection.on("error", (err) => err);
 
@@ -19,7 +19,6 @@ connection.once("open", async () => {
     await connection.dropCollection("thoughts");
   }
   await User.insertMany(seedUsers);
-  await Thought.insertMany(seedThoughts);
 
   console.info("Seeding complete! 🌱");
   process.exit(0);

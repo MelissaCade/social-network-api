@@ -17,18 +17,25 @@ module.exports = {
         _id: req.params.thoughtId,
       }).populate("reactions");
       if (!thought) {
-        return res.status(404).json({ message: "No thought with that ID." });
+        return res.status(404).json({ message: "No thought found with that ID." });
       }
       return res.json(thought);
     } catch (err) {
       res.status(500).json(err);
     }
   },
-  //STILL NEED TO : push the created thought's ID to the associated User's "Thoughts" array
   async createThought(req, res) {
     try {
       const thought = await Thought.create(req.body);
-      res.json(thought);
+      const userThought = await User.findOneAndUpdate(
+        { username: thought.username },
+        { $addToSet: { thoughts: thought._id } },
+        { new: true }
+      );
+      res.status(200).json({
+        message: "Thought created successfully.",
+        thought,
+      });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -41,7 +48,7 @@ module.exports = {
         { runValidators: true, new: true }
       ).populate("reactions");
       if (!thought) {
-        return res.status(404).json({ message: "No thought with that ID." });
+        return res.status(404).json({ message: "No thought found with that ID." });
       }
       res.json(thought);
     } catch (err) {
@@ -54,9 +61,9 @@ module.exports = {
         _id: req.params.thoughtId,
       });
       if (!thought) {
-        return res.status(404).json({ message: "No thought with that ID." });
+        return res.status(404).json({ message: "No thought found with that ID." });
       }
-      res.status(200).json({ message: "Thought succesfully deleted." });
+      res.status(200).json({ message: "Thought successfully deleted." });
     } catch (err) {
       res.status(500).json(err);
     }
